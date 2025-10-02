@@ -4,7 +4,7 @@
     "description": "Machine learning extension to support micro:bit CreateAI",
     "dependencies": {
         "core": "*",
-        "machine-learning-runner": "github:ssande-fwd/pxt-microbit-ml-runner"
+        "machine-learning-runner": "github:ssande-fwd/pxt-microbit-ml-runner-steve"
     },
     "files": [
         "README.md",
