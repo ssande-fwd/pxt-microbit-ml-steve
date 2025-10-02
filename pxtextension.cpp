@@ -121,12 +121,8 @@ namespace mlrunner {
 #endif
 
         const Sample3D accSample = uBit.accelerometer.getSample();
-        const float accData[3] = {
-            accSample.x / 1000.0f,
-            accSample.y / 1000.0f,
-            accSample.z / 1000.0f,
-        };
-        MldpReturn_t recordDataResult = mlDataProcessor.recordData(accData, 3);
+        const float x_scaled = accSample.x / 1000.0f;
+        MldpReturn_t recordDataResult = mlDataProcessor.recordData(&x_scaled, 1);
         if (recordDataResult != MLDP_SUCCESS) {
             DEBUG_PRINT("Failed to record accelerometer data\n");
             return;
@@ -168,7 +164,7 @@ namespace mlrunner {
 
         const int sampleDimensions = ml_getSampleDimensions();
         DEBUG_PRINT("\tModel sample dimensions: %d\n", sampleDimensions);
-        if (sampleDimensions != 3) {
+        if (sampleDimensions != 1) {
             DEBUG_PRINT("Model sample dimensions invalid\n");
             uBit.panic(MlRunnerError::ErrorSamplesDimension);
         }
