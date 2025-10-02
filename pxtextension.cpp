@@ -166,7 +166,7 @@ namespace mlrunner {
         DEBUG_PRINT("\tModel sample dimensions: %d\n", sampleDimensions);
         if (sampleDimensions != 3) {
             DEBUG_PRINT("Model sample dimensions invalid\n");
-            uBit.panic(MlRunnerError::ErrorSamplesDimension);
+            uBit.panic(MlRunnerError::ErrorSamplesDimension + sampleDimensions);
         }
 
         samplesPeriodMillisec = ml_getSamplesPeriod();
