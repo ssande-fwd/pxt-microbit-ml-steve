@@ -164,7 +164,7 @@ namespace mlrunner {
 
         const int sampleDimensions = ml_getSampleDimensions();
         DEBUG_PRINT("\tModel sample dimensions: %d\n", sampleDimensions);
-        if (sampleDimensions != 1) {
+        if (sampleDimensions != 3) {
             DEBUG_PRINT("Model sample dimensions invalid\n");
             uBit.panic(MlRunnerError::ErrorSamplesDimension);
         }
